@@ -1,0 +1,28 @@
+{
+  "name": "reflectr",
+  "version": "0.0.1",
+  "description": "A simple NLP library to invert the first/second-person pronouns in English language strings",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phughesmcr/reflectr.git"
+  },
+  "keywords": [
+    "NLP"
+  ],
+  "author": "Peter Hughes <github@phugh.es> (https://www.phugh.es)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/phughesmcr/reflectr/issues"
+  },
+  "homepage": "https://github.com/phughesmcr/reflectr",
+  "dependencies": {
+    "happynodetokenizer": "^7.1.0"
+  },
+  "scripts": {
+    "build": "tsc"
+  }
+}
