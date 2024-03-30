@@ -1,5 +1,5 @@
 {
-  "name": "reflectr",
+  "name": "@phughes/reflectr",
   "version": "0.0.2",
   "description": "A simple NLP library to invert the first/second-person pronouns in English language strings",
   "main": "dist/index.js",
