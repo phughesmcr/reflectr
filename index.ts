@@ -1,7 +1,7 @@
 /**
  * @module       Reflectr
  * @description  Invert the first/second-person pronouns of an English string
- * @version      0.0.2
+ * @version      0.0.3
  * @exports      invert
  * @author       P. Hughes <github@phugh.es> (https://www.phugh.es)
  * @copyright    2024 P. Hughes. All rights reserved.
