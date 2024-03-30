@@ -14,11 +14,11 @@ More complex cases may require advanced NLP techniques.
 ## Usage
 
 ```bash
-npm install reflectr
+npm install @phughes/reflectr
 ```
 
 ```javascript
-import { invert } from "reflectr"; // or "jsr:@phughesmcr/reflectr" if using Deno
+import { invert } from "@phughes/reflectr"; // or "jsr:@phughesmcr/reflectr" if using Deno
 invert("I want to go to the moon"); // "You want to go to the moon"
 ```
 
