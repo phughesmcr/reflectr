@@ -36,7 +36,7 @@ const memoize = <T extends any[], U>(fn: (...args: T) => U): ((...args: T) => U)
   };
 };
 
-const matchCase = memoize((text: string, pattern: string): string => {
+const matchCase: (text: string, pattern: string) => string = memoize((text: string, pattern: string): string => {
   const char = text.charAt(0);
   const code = pattern.charCodeAt(0);
   if (code >= 65 && code < 91) {
@@ -47,12 +47,12 @@ const matchCase = memoize((text: string, pattern: string): string => {
   }
 });
 
-const isPreposition = memoize((word: string): boolean => {
+const isPreposition: (word: string) => boolean = memoize((word: string): boolean => {
   const cleaned = word.toLowerCase().trim();
   return PREPOSITIONS.includes(cleaned);
 });
 
-const replacePronoun = memoize((word: string): string => {
+const replacePronoun: (word: string) => string = memoize((word: string): string => {
   const cleaned = word.toLowerCase().trim();
   if (Object.prototype.hasOwnProperty.call(PRONOUNS, cleaned)) {
     return PRONOUNS[cleaned] ?? word;
@@ -60,7 +60,7 @@ const replacePronoun = memoize((word: string): string => {
   return word;
 });
 
-const reconstitute = (mods: Mod[], length: number): string => {
+const reconstitute: (mods: Mod[], length: number) => string = (mods: Mod[], length: number): string => {
   const resultStr = new Array(length).fill(" ");
   let offset = 0;
   for (const { replacement, start, end, diff } of mods) {
