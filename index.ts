@@ -36,6 +36,8 @@ const memoize = <T extends any[], U>(fn: (...args: T) => U): ((...args: T) => U)
   };
 };
 
+const clean: (word: string) => string = memoize((word: string): string => word.toLowerCase().trim());
+
 const matchCase: (text: string, pattern: string) => string = memoize((text: string, pattern: string): string => {
   const char = text.charAt(0);
   const code = pattern.charCodeAt(0);
@@ -48,12 +50,11 @@ const matchCase: (text: string, pattern: string) => string = memoize((text: stri
 });
 
 const isPreposition: (word: string) => boolean = memoize((word: string): boolean => {
-  const cleaned = word.toLowerCase().trim();
-  return PREPOSITIONS.includes(cleaned);
+  return PREPOSITIONS.includes(clean(word));
 });
 
 const replacePronoun: (word: string) => string = memoize((word: string): string => {
-  const cleaned = word.toLowerCase().trim();
+  const cleaned = clean(word);
   if (Object.prototype.hasOwnProperty.call(PRONOUNS, cleaned)) {
     return PRONOUNS[cleaned] ?? word;
   }
