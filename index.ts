@@ -25,7 +25,9 @@ type Mod = {
   start: number;
 };
 
-const memoize = <T extends any[], U>(fn: (...args: T) => U): ((...args: T) => U) => {
+const memoize: <T extends any[], U>(fn: (...args: T) => U) => (...args: T) => U = <T extends any[], U>(
+  fn: (...args: T) => U,
+): ((...args: T) => U) => {
   const cache: Map<string, U> = new Map();
   return (...args: T): U => {
     const key = JSON.stringify(args);
@@ -39,6 +41,7 @@ const memoize = <T extends any[], U>(fn: (...args: T) => U): ((...args: T) => U)
 const clean: (word: string) => string = memoize((word: string): string => word.toLowerCase().trim());
 
 const matchCase: (text: string, pattern: string) => string = memoize((text: string, pattern: string): string => {
+  if (text === pattern) return text;
   const char = text.charAt(0);
   const code = pattern.charCodeAt(0);
   if (code >= 65 && code < 91) {
@@ -86,7 +89,7 @@ const reconstitute: (mods: Mod[], length: number) => string = (mods: Mod[], leng
  * console.log(inverted); // 'You want to go to the moon'
  * ```
  */
-export const invert = (str: string): string => {
+export const invert: (str: string) => string = (str: string): string => {
   if (typeof str !== "string") {
     throw new TypeError(`Expected a string, received ${typeof str}`);
   }
