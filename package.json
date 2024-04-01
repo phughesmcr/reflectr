@@ -1,6 +1,6 @@
 {
   "name": "reflectr-nlp",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A simple NLP library to invert the first/second-person pronouns in English language strings",
   "main": "dist/index.js",
   "module": "dist/index.js",

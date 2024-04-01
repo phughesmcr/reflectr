@@ -11,7 +11,10 @@ const memoize = (fn) => {
         return val;
     };
 };
+const clean = memoize((word) => word.toLowerCase().trim());
 const matchCase = memoize((text, pattern) => {
+    if (text === pattern)
+        return text;
     const char = text.charAt(0);
     const code = pattern.charCodeAt(0);
     if (code >= 65 && code < 91) {
@@ -22,11 +25,10 @@ const matchCase = memoize((text, pattern) => {
     }
 });
 const isPreposition = memoize((word) => {
-    const cleaned = word.toLowerCase().trim();
-    return PREPOSITIONS.includes(cleaned);
+    return PREPOSITIONS.includes(clean(word));
 });
 const replacePronoun = memoize((word) => {
-    const cleaned = word.toLowerCase().trim();
+    const cleaned = clean(word);
     if (Object.prototype.hasOwnProperty.call(PRONOUNS, cleaned)) {
         return PRONOUNS[cleaned] ?? word;
     }
